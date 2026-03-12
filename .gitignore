@@ -1,0 +1,21 @@
+# file ambiente (password database ecc)
+.env
+
+# eventuali dipendenze composer
+/vendor
+
+# file temporanei
+*.log
+*.tmp
+
+# sistema operativo
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/
+.idea/
+
+# file di cache
+/cache
+/tmp
