@@ -1,0 +1,215 @@
+{
+  "info": {
+    "name": "Prova Esame Backend API",
+    "_postman_id": "8c7f7df0-0000-0000-0000-123456789000",
+    "description": "Collection per testare le API del backend della simulazione d'esame.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Test\",\n  \"cognome\": \"Utente\",\n  \"email\": \"test@azienda.it\",\n  \"password\": \"123456\",\n  \"ruolo\": \"dipendente\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/utenti/register",
+          "host": ["{{base_url}}"],
+          "path": ["api", "utenti", "register"]
+        }
+      }
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"anna@azienda.it\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/utenti/login",
+          "host": ["{{base_url}}"],
+          "path": ["api", "utenti", "login"]
+        }
+      }
+    },
+    {
+      "name": "Get Eventi",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/eventi",
+          "host": ["{{base_url}}"],
+          "path": ["api", "eventi"]
+        }
+      }
+    },
+    {
+      "name": "Get Mie Iscrizioni",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/eventi/miei",
+          "host": ["{{base_url}}"],
+          "path": ["api", "eventi", "miei"]
+        }
+      }
+    },
+    {
+      "name": "Iscriviti Evento",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/eventi/1/iscrizione",
+          "host": ["{{base_url}}"],
+          "path": ["api", "eventi", "1", "iscrizione"]
+        }
+      }
+    },
+    {
+      "name": "Disiscriviti Evento",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/eventi/1/iscrizione",
+          "host": ["{{base_url}}"],
+          "path": ["api", "eventi", "1", "iscrizione"]
+        }
+      }
+    },
+    {
+      "name": "Crea Evento",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titolo\": \"Nuovo corso React\",\n  \"data_evento\": \"2026-05-10 10:00:00\",\n  \"descrizione\": \"Corso frontend avanzato\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/eventi",
+          "host": ["{{base_url}}"],
+          "path": ["api", "eventi"]
+        }
+      }
+    },
+    {
+      "name": "Modifica Evento",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"titolo\": \"Evento aggiornato\",\n  \"data_evento\": \"2026-05-12 15:00:00\",\n  \"descrizione\": \"Descrizione aggiornata\"\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/eventi/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "eventi", "1"]
+        }
+      }
+    },
+    {
+      "name": "Elimina Evento",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/eventi/1",
+          "host": ["{{base_url}}"],
+          "path": ["api", "eventi", "1"]
+        }
+      }
+    },
+    {
+      "name": "Partecipanti Evento",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/eventi/5/partecipanti",
+          "host": ["{{base_url}}"],
+          "path": ["api", "eventi", "5", "partecipanti"]
+        }
+      }
+    },
+    {
+      "name": "Checkin Evento",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"iscrizione_id\": 1\n}"
+        },
+        "url": {
+          "raw": "{{base_url}}/api/eventi/1/checkin",
+          "host": ["{{base_url}}"],
+          "path": ["api", "eventi", "1", "checkin"]
+        }
+      }
+    },
+    {
+      "name": "Statistiche Eventi Passati",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{token}}" }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/statistiche/eventi-passati?dal=2026-01-01&al=2026-12-31",
+          "host": ["{{base_url}}"],
+          "path": ["api", "statistiche", "eventi-passati"],
+          "query": [
+            { "key": "dal", "value": "2026-01-01" },
+            { "key": "al", "value": "2026-12-31" }
+          ]
+        }
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost/prova-esame-backend"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ]
+}

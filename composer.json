@@ -1,0 +1,6 @@
+{
+  "name": "rumetto/prova-esame-backend",
+  "description": "Backend PHP per simulazione prova d'esame",
+  "type": "project",
+  "require": {}
+}
